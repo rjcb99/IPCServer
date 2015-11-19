@@ -33,6 +33,7 @@ func main() {
 	if pm := MakeNewPostMan(); pm != nil {
 		MakeNewServerHandle(1, *ip, *port, pm).Server()
 	}
+	SysLog.PutLineAsLog("ipcServer Exit!")
 }
 
 //初始化进程日志
