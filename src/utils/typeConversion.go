@@ -3,7 +3,6 @@ package utils
 import (
 	"bytes"
 	"fmt"
-	log "github.com/cihub/seelog"
 	"strconv"
 	"strings"
 )
@@ -11,7 +10,7 @@ import (
 func S2i(s string) int {
 	i, err := strconv.ParseInt(s, 10, 0)
 	if err != nil {
-		log.Debugf("s2i(%s) err:%s", s, err.Error())
+		SysLog.PutLineAsLog(fmt.Sprintf("s2i(%s) err:%s", s, err.Error()))
 		return 0
 	}
 	return int(i)
@@ -20,7 +19,7 @@ func S2i(s string) int {
 func S2i64(s string) int64 {
 	i, err := strconv.ParseInt(s, 10, 0)
 	if err != nil {
-		log.Debugf("s2i(%s) err:%s", s, err.Error())
+		SysLog.PutLineAsLog(fmt.Sprintf("s2i(%s) err:%s", s, err.Error()))
 		return 0
 	}
 	return i
