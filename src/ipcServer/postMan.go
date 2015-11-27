@@ -17,9 +17,9 @@ package main
 
 import (
 	"fmt"
-	"game/utils"
 	"net"
 	"time"
+	"utils"
 )
 
 //邮递员

@@ -18,10 +18,10 @@ package main
 import (
 	"encoding/binary"
 	"fmt"
-	"game/utils"
 	"net"
 	"sync"
 	"time"
+	"utils"
 )
 
 //信箱
