@@ -72,7 +72,7 @@ func (this *SafeQueue) Remove(ee interface{}) {
 	this.lock.Lock()
 	defer this.lock.Unlock()
 	for e := this.list.Front(); e != nil; e = e.Next() {
-		if ee == e {
+		if ee == e.Value {
 			this.list.Remove(e)
 			return
 		}
@@ -88,7 +88,7 @@ func (this *SafeQueue) EachItem(dealFun func(interface{})) {
 	this.lock.Lock()
 	defer this.lock.Unlock()
 	for e := this.list.Front(); e != nil; e = e.Next() {
-		dealFun(e)
+		dealFun(e.Value)
 	}
 }
 
@@ -97,7 +97,7 @@ func (this *SafeQueue) EachItemBreak(dealFun func(interface{}) bool) {
 	this.lock.Lock()
 	defer this.lock.Unlock()
 	for e := this.list.Front(); e != nil; e = e.Next() {
-		r := dealFun(e)
+		r := dealFun(e.Value)
 		if r == true {
 			break
 		}
