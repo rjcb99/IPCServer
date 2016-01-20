@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -34,7 +33,7 @@ func GetExeFilePath() string {
 func MkDir(path string) bool {
 	err := os.MkdirAll(path, 0777)
 	if err != nil {
-		SysLog.PutLineAsLog(fmt.Sprintf("MkDir(%s) Error:%s", path, err.Error()))
+		//SysLog.PutLineAsLog(fmt.Sprintf("MkDir(%s) Error:%s", path, err.Error()))
 		return false
 	}
 	return true
@@ -44,7 +43,7 @@ func MkDir(path string) bool {
 func RmDir(path string) bool {
 	err := os.RemoveAll(path)
 	if err != nil {
-		SysLog.PutLineAsLog(fmt.Sprintf("RmDir(%s) Error:%s", path, err.Error()))
+		//SysLog.PutLineAsLog(fmt.Sprintf("RmDir(%s) Error:%s", path, err.Error()))
 		return false
 	}
 	return true
@@ -64,7 +63,7 @@ func IsExist(path string) bool {
 func IsFile(file string) bool {
 	f, err := os.Stat(file)
 	if err != nil {
-		SysLog.PutLineAsLog(fmt.Sprintf("IsFile(%s) Error:%s", file, err.Error()))
+		//SysLog.PutLineAsLog(fmt.Sprintf("IsFile(%s) Error:%s", file, err.Error()))
 		return false
 	}
 	return !f.IsDir()
@@ -74,7 +73,7 @@ func IsFile(file string) bool {
 func FileSize(path string) int64 {
 	f, err := os.Stat(path)
 	if err != nil {
-		SysLog.PutLineAsLog(fmt.Sprintf("FileSize(%s) Error:%s", path, err.Error()))
+		//SysLog.PutLineAsLog(fmt.Sprintf("FileSize(%s) Error:%s", path, err.Error()))
 		return 0
 	}
 	return f.Size()
@@ -84,7 +83,7 @@ func FileSize(path string) int64 {
 func FileModifyTime(path string) int64 {
 	f, err := os.Stat(path)
 	if err != nil {
-		SysLog.PutLineAsLog(fmt.Sprintf("FileModifyTime(%s) Error:%s", path, err.Error()))
+		//SysLog.PutLineAsLog(fmt.Sprintf("FileModifyTime(%s) Error:%s", path, err.Error()))
 		return 0
 	}
 	return f.ModTime().Unix()
