@@ -63,7 +63,7 @@ func devRandom() uint64 {
 	return 0
 }
 
-//Random  [m,n]
+//Random  [m,n] no safe
 func GetRandom(m, n int) int {
 	if randnum == nil {
 		randnum = rand.New(rand.NewSource(time.Now().UnixNano()))
